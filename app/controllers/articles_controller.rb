@@ -2,10 +2,8 @@ class ArticlesController < ApplicationController
   def show
 
     @article = Article.find(params[:id])
-
     rescue ActiveRecord::RecordNotFound => e
       render :error
-
     end
 
   def index
@@ -17,6 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params.require(:article).permit(:title, :description))
-    render plain: @article.inspect
+    @article.save
+    redirect_to @article
   end
 end
