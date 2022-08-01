@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   def show
 
     @article = Article.find(params[:id])
+
     rescue ActiveRecord::RecordNotFound => e
       render :error
     end
@@ -16,6 +17,8 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render :error
   end
 
   def create
@@ -36,5 +39,11 @@ class ArticlesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path
   end
 end

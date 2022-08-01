@@ -1,3 +1,14 @@
-<h1>Showing articles details of <%= @article.title %> </h1>
+<h1>Showing articles details of
+  <%= @article.title %>
+</h1>
 
-<p><strong>Description: </strong> <%= @article.description %> </p>
+<p><strong>Description:
+  </strong>
+  <%= @article.description %>
+</p>
+
+<%= link_to "Go Back", articles_path %>
+|
+<%= link_to "Edit", edit_article_path(@article) %>
+|
+<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
