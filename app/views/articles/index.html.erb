@@ -6,6 +6,7 @@
     <thead style="background-color:black;color:white;">
       <tr>
         <th>ID</th>
+        <th>Author</th>
         <th>Title</th>
         <th>Description</th>
         <th colspan="3">Actions</th>
@@ -16,6 +17,9 @@
         <tr>
           <td style="background-color:#c5d3e8;color:black;">
             <%= article.id %>
+          </td>
+          <td style="background-color:#c5d3e8;color:black;">
+            <%= article.user.username if article.user %>
           </td>
           <td style="background-color:#c5d3e8;color:black;">
             <b><%= article.title %>

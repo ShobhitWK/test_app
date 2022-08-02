@@ -13,6 +13,9 @@
       <p class="card-text">
         <%= @article.description %>
       </p>
+      <p>
+        <b>Creator: <%= @article.user.username if @article.user %></b>
+      </p>
       <%= link_to "Go Back", articles_path %>
       <%= link_to "Edit", edit_article_path(@article) %>
       <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
