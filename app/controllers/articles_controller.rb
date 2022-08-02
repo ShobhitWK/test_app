@@ -3,8 +3,7 @@ class ArticlesController < ApplicationController
 
   def show
 
-    rescue ActiveRecord::RecordNotFound => e
-      render :error
+
     end
 
   def index
@@ -50,6 +49,8 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+     render :error
   end
 
   def articles_params

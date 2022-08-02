@@ -1,16 +1,21 @@
 <center>
-<h1>Article: 
-  <%= @article.title %>
-</h1>
+  <div class="card" style="width: 40rem;">
 
-<p><strong>Description:
-  </strong>
-  <%= @article.description %>
-</p>
-
-<%= link_to "Go Back", articles_path %>
-|
-<%= link_to "Edit", edit_article_path(@article) %>
-|
-<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
+    <h1 style="background-color:black;color:white;"><%= @article.title %></h1>
+    <div class="card-body">
+      <p>
+        <b>Created at:</b>
+        <%= @article.created_at %>
+        |
+        <b>Last Updated:</b>
+        <%= @article.updated_at %>
+      </p>
+      <p class="card-text">
+        <%= @article.description %>
+      </p>
+      <%= link_to "Go Back", articles_path %>
+      <%= link_to "Edit", edit_article_path(@article) %>
+      <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
+    </div>
+  </div>
 </center>
