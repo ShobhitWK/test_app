@@ -2,9 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :update, :edit, :destroy]
 
   def show
-
-
-    end
+  end
 
   def index
     @articles = Article.all
@@ -15,9 +13,6 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-
-    rescue ActiveRecord::RecordNotFound => e
-      render :error
   end
 
   def create
@@ -41,8 +36,12 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
-    redirect_to articles_path
+    if @article.destroy
+      flash[:alert] = "Article was deleted sucessfully."
+      redirect_to articles_path
+    else
+      flash[:alert] = "Can't delete the article"
+    end
   end
 
   private
