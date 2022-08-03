@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
     rescue ActiveRecord::RecordNotFound => e
-      render :error
+      if params[:id].downcase == "shobhit"
+        @user = User.find(1)
+      else
+        render :error
+      end
   end
 
   def new
@@ -22,6 +31,16 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:alert] = "User account was deleted sucessfully."
+      redirect_to root_path
+    else
+      flash[:alert] = "Can't delete the user"
     end
   end
 

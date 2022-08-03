@@ -15,8 +15,8 @@
       <p class="card-text" style="background-color:black;color:white;">
         <%= @article.description %>
       </p>
-      <p>
-        <b>Creator: <%= @article.user.username if @article.user %></b>
+      <p style="background-color:black;color:white;">
+        <b>Creator: <%= link_to "#{@article.user.username if @article.user}", @article.user %>
       </p>
       <%= link_to "Go Back", articles_path %>
       <%= link_to "Edit", edit_article_path(@article) %>

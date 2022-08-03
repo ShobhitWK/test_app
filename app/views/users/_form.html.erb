@@ -1,6 +1,5 @@
 </center>
 <% if @user.errors.any? %>
-  <h4 style="color:red;">Error Occured!</h4>
   <ul style="background-color:black;color:red;">
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

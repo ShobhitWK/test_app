@@ -1,5 +1,7 @@
 <body style="background-color:black;color:white;">
 <center>
+
+<h1>User Information</h1>
 <pre>
 username: <%= @user.username %>
 <br/>
@@ -10,6 +12,38 @@ Created at: <%= @user.created_at %>
 Last Updated: <%= @user.updated_at %>
 <br/>
 </pre>
-<%= link_to "Edit info", edit_user_path(@user)%>
+<h2>User Articles</h2>
+
+<table class="table" border="3px">
+    <thead style="background-color:black;color:white;">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.articles.each do |article| %>
+        <tr>
+          <td style="background-color:#c5d3e8;color:black;">
+            <%= article.id %>
+          </td>
+          <td style="background-color:#c5d3e8;color:black;">
+            <b><%= article.title %>
+          </td>
+          <td style="background-color:#c5d3e8;color:black;">
+            <%= article.description %>
+          </td></b>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+
+
+<%= link_to "Edit User info", edit_user_path(@user)%> |
+<%= link_to "Go Back", root_path %> |
+<%= link_to 'Delete', user_path(@user), method: :delete, data: { confirm: "Are you sure?"} %>
 </center>
 </body>

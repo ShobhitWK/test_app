@@ -1,4 +1,4 @@
-<body bgcolor="black">
+<body style="background-color:black;color:white;">
 
 <center>
 
@@ -21,7 +21,7 @@
             <%= article.id %>
           </td>
           <td style="background-color:#c5d3e8;color:black;">
-            <%= article.user.username if article.user %>
+            <%= link_to "#{article.user.username if article.user}", article.user %>
           </td>
           <td style="background-color:#c5d3e8;color:black;">
             <b><%= article.title %>
@@ -45,6 +45,8 @@
   <br>
 
   <%= link_to "Home", root_path %>
+  |
+  <%= link_to "Users", users_path %>
   |
   <%= link_to "Create New Article", new_article_path %>
 

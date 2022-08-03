@@ -1,0 +1,49 @@
+<body style="background-color:black;color:white;">
+
+  <center>
+
+    <h1>Users</h1>
+
+    <table class="table" border="3px">
+      <thead style="background-color:black;color:white;">
+        <tr>
+          <th>ID</th>
+          <th>Articles</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td style="background-color:#c5d3e8;color:black;">
+              <%= user.id %>
+            </td>
+            <td style="background-color:#c5d3e8;color:black;">
+              <%= user.articles.length %>
+            </td>
+            <td style="background-color:#c5d3e8;color:black;">
+              <%= user.username %>
+            </td>
+            <td style="background-color:#c5d3e8;color:black;">
+              <%= user.email %>
+            </td>
+            <td style="background-color:#c5d3e8;color:black;">
+              <%= link_to "#{user.username if user}", user %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+
+    <%= link_to "Home", root_path %>
+    |
+    <%= link_to "Create New user", signup_path %>
+    |
+    <%= link_to "Articles", articles_path %>
+    |
+    <%= link_to "Sign up", signup_path %>
+  </center>
+</body>
