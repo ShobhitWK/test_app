@@ -1,0 +1,15 @@
+<body style="background-color:black;color:white;">
+<center>
+<pre>
+username: <%= @user.username %>
+<br/>
+email: <%= @user.email %>
+<br/>
+Created at: <%= @user.created_at %>
+<br/>
+Last Updated: <%= @user.updated_at %>
+<br/>
+</pre>
+<%= link_to "Edit info", edit_user_path(@user)%>
+</center>
+</body>
