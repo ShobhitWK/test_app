@@ -1,16 +1,18 @@
+<body bgcolor="black">
 <center>
+
   <div class="card" style="width: 40rem;">
 
     <h1 style="background-color:black;color:white;"><%= @article.title %></h1>
     <div class="card-body">
-      <p>
+      <p style="background-color:black;color:white;">
         <b>Created at:</b>
         <%= @article.created_at %>
         |
         <b>Last Updated:</b>
         <%= @article.updated_at %>
       </p>
-      <p class="card-text">
+      <p class="card-text" style="background-color:black;color:white;">
         <%= @article.description %>
       </p>
       <p>
@@ -22,3 +24,4 @@
     </div>
   </div>
 </center>
+</body>
